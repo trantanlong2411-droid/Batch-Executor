@@ -4,6 +4,12 @@
 
 **GitHub:** https://github.com/trantanlong2411-droid/Batch-Executor
 
+## Verified Pharos Multicall3 execution proof
+
+[See real Batch Executor evidence: three successful subcalls, a separate 2-success/1-failure case, pinned block results and 3-to-1 step reduction](./proof/README.md).
+
+GitHub Actions run [40752892091](https://github.com/trantanlong2411-droid/Batch-Executor/actions/runs/40752892091) verified that Multicall3 was genuinely deployed on Pharos Atlantic, and successfully ran both scenarios using actual RPC rather than synthetic prices or placeholder results.
+
 ## Purpose
 
 Read at least three independent Pharos Atlantic smart-contract values using one optimised batch, verify the results against the same three standalone calls at a pinned block, report request/step reduction, and demonstrate clear partial failure without losing successful results.

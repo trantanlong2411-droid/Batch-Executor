@@ -1,0 +1,74 @@
+{
+  "schema": "pharos-batch-verified-scenarios-v1",
+  "source": "GitHub Actions real deployed-worker stdout from run 40752892091, 2026-10-28",
+  "sourceLink": "https://github.com/trantanlong2411-droid/Batch-Executor/actions/runs/40752892091",
+  "sourceOfTruth": "CI generated machine-readable artifact pharos-batch-executor-live-evidence (downloadable from run), this summary is human-reviewed and transcribed from CI logs.",
+  "network": "Pharos Atlantic Testnet",
+  "chainId": 688689,
+  "mode": "MULTICALL3",
+  "batchType": "One on-chain Multicall3.aggregate3 eth_call (no transaction broadcast)",
+  "multicall": "0xcA11bde05977b3631167028862bE2a173976CA11",
+  "contract": "0x934403227468426b33c26536dABC33b066B73f73",
+  "account": "0x74B2c2E4E4B771F0C75dcE44f40787468E323f79",
+  "cases": [
+    {
+      "name": "Three independent successful actions",
+      "blockNumber": "31997412",
+      "decision": "BATCH_COMPLETED",
+      "successCount": 3,
+      "failureCount": 0,
+      "actions": [
+        {
+          "id": "pending",
+          "status": "SUCCESS",
+          "value": "0"
+        },
+        {
+          "id": "deposited",
+          "status": "SUCCESS",
+          "value": "1000000000000000000"
+        },
+        {
+          "id": "tokenA",
+          "status": "SUCCESS",
+          "value": "0x0988aD05eFB8dfCf1d2Cb0434a2a719140497aea"
+        }
+      ]
+    },
+    {
+      "name": "Partial failure with invalid function selector",
+      "blockNumber": "31997414",
+      "decision": "PARTIAL_FAILURE_HANDLED",
+      "successCount": 2,
+      "failureCount": 1,
+      "actions": [
+        {
+          "id": "pending",
+          "status": "SUCCESS",
+          "value": "0"
+        },
+        {
+          "id": "invalid",
+          "status": "FAILED",
+          "value": null,
+          "reason": "Invalid selector intentionally triggers failed subcall"
+        },
+        {
+          "id": "tokenA",
+          "status": "SUCCESS",
+          "value": "0x0988aD05eFB8dfCf1d2Cb0434a2a719140497aea"
+        }
+      ]
+    }
+  ],
+  "comparison": {
+    "independentCalls": 3,
+    "multicallCalls": 1,
+    "savedCalls": 2,
+    "reductionPercent": 66.67,
+    "note": "Only action execution call count, not the entire verification workflow. All independent reads are additionally run to check batch result equality."
+  },
+  "blockchainWrite": false,
+  "estimatedPaidGasSavings": null,
+  "caveat": "Read-only gasless eth_call, no paid gas savings or mined tx receipt claimed. Partial failure preserves other successful read results."
+}
